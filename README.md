@@ -21,10 +21,11 @@ Edit the `Token` in `run.py`
 
 `Token` is the API key for BardAI. Found [here](https://bard.google.com/)
 Go to https://bard.google.com/
-
+```
 F12 for console
 Copy the values
     Session: Go to Application → Cookies → __Secure-1PSID. Copy the value of that cookie.
+```
 
 Edit the `start.bat` put video yt-id or run `run.py`
 
