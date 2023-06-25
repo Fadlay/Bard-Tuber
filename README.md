@@ -57,4 +57,3 @@ Please note that this project was created solely for fun and as part of a YouTub
 # credit
 https://github.com/Koischizo/AI-Vtuber
 
-https://github.com/meet447/MeuxVtuber
