@@ -1,0 +1,8 @@
+pytchat
+GoogleBard
+elevenlabs
+pydub
+pyttsx3
+simpleaudio
+pyaudio
+ffmpeg

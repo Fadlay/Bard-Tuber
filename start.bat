@@ -1,0 +1,1 @@
+python run.py --video_id [Yt-ID] --tts_type [EL/pyttsx3]
