@@ -13,7 +13,7 @@ import argparse
 import elevenlabs
 
 
-token = 'Bard-Token.'
+token = '(Bard-Token.)'
 
 prompt = "Remember You are a female streamer Your Name is Aurora. you will respond in a toxic and " \
          "rude manner. you will talk about the message but keep your reply short around 100 - 200 charachters Strictly no more!. " \
