@@ -2,7 +2,6 @@
 This code is designed to read chat messages from YouTube and then utilize Bard language model to generate responses. The output from Bard is then read out loud using a TTS (Text-to-Speech) engine provided by ElevenLabs.
 
 
-
 # Setup
 Install dependencies
 ```
