@@ -14,6 +14,7 @@ It also requires [`ffmpeg`](https://ffmpeg.org/) to be installed
 # Usage
 
 Edit the variables `EL_key` in `config.json`
+
 Edit the `Token` in `run.py`
 
 `EL_key` is the API key for [ElevenLabs](https://beta.elevenlabs.io/). Found in Profile Settings
