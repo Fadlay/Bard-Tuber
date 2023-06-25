@@ -5,7 +5,7 @@ This code is designed to read chat messages from YouTube and then utilize Bard l
 # Setup
 Install dependencies
 ```
-git clone https://github.com/
+git clone [https://github.com/](https://github.com/RDGitHubZ/AI-Tuber.git)
 cd AI-Vtuber
 pip install -r requirements.txt
 ```
