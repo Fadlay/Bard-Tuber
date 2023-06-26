@@ -31,11 +31,11 @@ Edit the `start.bat` put video yt-id or run `run.py`
 
 ### Default TTS
 ```
-python run.py -id STREAMID 
+python run.py --video_id STREAMID 
 ```
 ### Elevenlabs TTS
 ```
-python run.py -id STREAMID -tts EL 
+python run.py --video_id STREAMID --tts_type EL 
 ```
 then you're set
 ## Notes
