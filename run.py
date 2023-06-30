@@ -17,8 +17,8 @@ import threading
 import openai
 
 blacklist = ["Nightbot", "streamelements"]
-token = 'YAih7uxOICVEEfcYW0xlkQOP7MDDAXMOETxTYkZ-jRfYJkrsIfJJ2sY5hSj97kKe7chdXw.'
-openai.api_key = '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'
+token = 'BARD-TOKEN'
+openai.api_key = 'OPENAI-API'
 nama_file = "output.txt"
 lokasi_penyimpanan = r"D:\AI-Vtuber-main-Copy\AI-Vtuber-main"
 message = ""
