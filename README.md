@@ -1,4 +1,4 @@
-# AI-Tuber
+# Bard-Tuber
 This code is designed to read chat messages from YouTube and then utilize Bard language model to generate responses. The output from Bard is then read out loud using a TTS (Text-to-Speech) engine provided by pyttsx3.
 
 
@@ -35,7 +35,7 @@ Replace `STREAMID` with the stream's ID that you can find on the Youtube Stream 
 # Other
 I used [This VTS plugin](https://lualucky.itch.io/vts-desktop-audio-plugin) to make her mouth move
 
-Please note that this project was created solely for fun and as part of a YouTube video, so the quality and reliability of the code may be questionable. Also, after the completion of the project checklist, there won't be much activity in updating or improving this repository. Nonetheless, we hope that this project can serve as a source of inspiration for anyone interested in building their own AI Vtuber.
+Please note that this project was created solely for fun and as part of a YouTube video, so the quality and reliability of the code may be questionable. Nonetheless, we hope that this project can serve as a source of inspiration for anyone interested in building their own AI Vtuber.
 
 - [x] Clean up
 - [ ] GUI
