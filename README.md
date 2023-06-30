@@ -36,6 +36,9 @@ python run.py --video_id STREAMID
 ## Notes
 Replace `STREAMID` with the stream's ID that you can find on the Youtube Stream link
 
+```
+Example : https://www.youtube.com/watch?v=`xxxxxxxxxxx`
+```
 
 # Other
 I used [This VTS plugin](https://lualucky.itch.io/vts-desktop-audio-plugin) to make her mouth move
