@@ -156,12 +156,17 @@ if __name__ == "__main__":
             while True:
                 if keyboard.is_pressed('RIGHT_SHIFT'):
                     record_audio()
+                if keyboard.is_pressed('Left_Shift'):
+                    print("Stopped")
+                    keyboard.unhook_all()  # Membatalkan semua hook keyboard
+                    exit()
         if mode == "2":
             initVar()
             while True:
                 read_chat()
     except KeyboardInterrupt:
         print("Stopped")
+        
 
 
 if __name__ == "__main__":
