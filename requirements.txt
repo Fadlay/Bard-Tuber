@@ -1,8 +1,10 @@
 pytchat
+wave
 GoogleBard
-elevenlabs
 pydub
 pyttsx3
 simpleaudio
 pyaudio
 ffmpeg
+openai
+keyboard
