@@ -6,7 +6,7 @@ This code is designed to read chat messages from YouTube and Hearing from microp
 Install dependencies
 ```
 git clone https://github.com/Fadlay/Bard-Tuber.git
-cd AI-Vtuber
+cd Bard-Tuber
 pip install -r requirements.txt
 ```
 It also requires [`ffmpeg`](https://ffmpeg.org/) to be installed
@@ -14,13 +14,18 @@ It also requires [`ffmpeg`](https://ffmpeg.org/) to be installed
 # Usage
 Edit the `Token` in `run.py`
 
+Edit the `openai.api_key` in `run.py`
+
 `Token` is the API key for BardAI. Found [here](https://bard.google.com/)
 Go to https://bard.google.com/
+
 ```
 F12 for console
 Copy the values
     Session: Go to Application → Cookies → __Secure-1PSID. Copy the value of that cookie.
 ```
+
+`openai.api_key` is the API key for OpenAI. Found [here](https://platform.openai.com/account/api-keys)
 
 Edit the `start.bat` put video yt-id or run `run.py`
 
