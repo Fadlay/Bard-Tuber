@@ -1,5 +1,5 @@
 # AI-Tuber
-This code is designed to read chat messages from YouTube and then utilize Bard language model to generate responses. The output from Bard is then read out loud using a TTS (Text-to-Speech) engine provided by ElevenLabs.
+This code is designed to read chat messages from YouTube and then utilize Bard language model to generate responses. The output from Bard is then read out loud using a TTS (Text-to-Speech) engine provided by pyttsx3.
 
 
 # Setup
@@ -12,12 +12,7 @@ pip install -r requirements.txt
 It also requires [`ffmpeg`](https://ffmpeg.org/) to be installed
 
 # Usage
-
-Edit the variables `EL_key` in `config.json`
-
 Edit the `Token` in `run.py`
-
-`EL_key` is the API key for [ElevenLabs](https://beta.elevenlabs.io/). Found in Profile Settings
 
 `Token` is the API key for BardAI. Found [here](https://bard.google.com/)
 Go to https://bard.google.com/
@@ -33,15 +28,8 @@ Edit the `start.bat` put video yt-id or run `run.py`
 ```
 python run.py --video_id STREAMID 
 ```
-### Elevenlabs TTS
-```
-python run.py --video_id STREAMID --tts_type EL 
-```
-then you're set
 ## Notes
 Replace `STREAMID` with the stream's ID that you can find on the Youtube Stream link
-
-You can change the voice by changing `voice` in `config.json`. You can find the ID's [here](https://api.elevenlabs.io/docs) in `Get Voices`
 
 
 # Other
@@ -56,4 +44,3 @@ Please note that this project was created solely for fun and as part of a YouTub
 
 # credit
 https://github.com/Koischizo/AI-Vtuber
-
