@@ -17,8 +17,8 @@ import io
 import speech_recognition as sr
 
 blacklist = ["Nightbot"]
-token = 'YAih7uxOICVEEfcYW0xlkQOP7MDDAXMOETxTYkZ-jRfYJkrsIfJJ2sY5hSj97kKe7chdXw.'
-openai.api_key = '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'
+token = 'Bard-API-Token'
+openai.api_key = 'OpenAI-API'
 nama_file = "output.txt"
 lokasi_penyimpanan = r"D:\AI-Vtuber-mains-Copy\AI-Vtuber-main"
 message = ""
