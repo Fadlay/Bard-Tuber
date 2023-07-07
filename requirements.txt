@@ -10,3 +10,4 @@ keyboard
 torch
 torchaudio
 speechrecognition
+numpy
