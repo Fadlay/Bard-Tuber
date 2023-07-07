@@ -19,13 +19,13 @@ import speech_recognition as sr
 blacklist = ["Nightbot"]
 token = 'Bard-API-Token'
 openai.api_key = 'OpenAI-API'
-nama_file = "output.txt"
-lokasi_penyimpanan = r"D:\AI-Vtuber-mains-Copy\AI-Vtuber-main"
+name_file = "output.txt"
+saving_location = r"D:\AI-Vtuber-mains-Copy\AI-Vtuber-main"
 message = ""
 
-prompt = "Remember You are a female streamer Your Name is Aria Neuralisa.People call you Aria you will respond in a funny, toxic and " \
+prompt = "Remember You are a female streamer Your Name is [Your Vtuber Name].People call you Aria you will respond in a funny, toxic and " \
          "rude manner. you will talk about the message but keep your reply short around 5 - 6 words Strictly no more and no less!. " \
-         "you will also flirt.Your Creator name is Fadlay. If you understand " \
+         "you will also flirt.Your Creator name is [Your Name]. If you understand " \
          "reply with 'prompt has been setup'"
 
 bot = Chatbot(token)
@@ -131,7 +131,7 @@ def llm(message):
     global is_Speaking
     output = bot.ask(message)['content']
     print(output)
-    with open(lokasi_penyimpanan + "\\" + nama_file, 'w') as file:
+    with open(saving_location + "\\" + name_file, 'w') as file:
         file.write(output)
     if len (output) > 950:
         while True:
@@ -141,14 +141,14 @@ def llm(message):
         winsound.PlaySound("test.wav", winsound.SND_FILENAME)
         is_Speaking = False
         time.sleep(1)
-        with open (lokasi_penyimpanan + "\\" + nama_file, "w") as f:
+        with open (saving_location + "\\" + name_file, "w") as f:
             f.truncate(0)
 
 def llms(message):
     global is_Speaking
     output = bot.ask(message)['content']
     print(output)
-    with open(lokasi_penyimpanan + "\\" + nama_file, 'w') as file:
+    with open(saving_location + "\\" + name_file, 'w') as file:
         file.write(output)
     if len (output) > 950:
         while True:
@@ -158,14 +158,14 @@ def llms(message):
         winsound.PlaySound("test.wav", winsound.SND_FILENAME)
         is_Speaking = False
         time.sleep(1)
-        with open (lokasi_penyimpanan + "\\" + nama_file, "w") as f:
+        with open (saving_location + "\\" + name_file, "w") as f:
             f.truncate(0)
 
 def llmn(message):
     global is_Speaking
     output = bot.ask(message)['content']
     print(output)
-    with open(lokasi_penyimpanan + "\\" + nama_file, 'w') as file:
+    with open(saving_location + "\\" + name_file, 'w') as file:
         file.write(output)
     if len (output) > 950:
         while True:
@@ -175,12 +175,12 @@ def llmn(message):
         winsound.PlaySound("test.wav", winsound.SND_FILENAME)
         is_Speaking = False
         time.sleep(1)
-        with open (lokasi_penyimpanan + "\\" + nama_file, "w") as f:
+        with open (saving_location + "\\" + name_file, "w") as f:
             f.truncate(0)
 
 def mode_2():
     global is_Speaking
-    text = "Fadlay: " + input("Send a Messages: ")
+    text = input("Send a Messages: ")
     while True:
         llms(text)
         is_Speaking = False
