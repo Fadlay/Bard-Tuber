@@ -2,9 +2,11 @@ pytchat
 wave
 GoogleBard
 pydub
-pyttsx3
 simpleaudio
 pyaudio
 ffmpeg
 openai
 keyboard
+torch
+torchaudio
+speechrecognition
