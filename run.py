@@ -1,31 +1,31 @@
+import os
 import pytchat
 from pytchat import LiveChat, SpeedCalculator
 from Bard import Chatbot
 import time
-import requests
 from pydub import AudioSegment
 from pydub.playback import play
-import io
-import pyttsx3
-import sys
 import argparse
-import re
 import keyboard
 import pyaudio
 import wave
-import threading
 import openai
+import torch
+import torchaudio
+import winsound
+import io
+import speech_recognition as sr
 
-blacklist = ["Nightbot", "streamelements"]
-token = 'BARD-TOKEN'
-openai.api_key = 'OPENAI-API'
+blacklist = ["Nightbot"]
+token = 'YAih7uxOICVEEfcYW0xlkQOP7MDDAXMOETxTYkZ-jRfYJkrsIfJJ2sY5hSj97kKe7chdXw.'
+openai.api_key = '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'
 nama_file = "output.txt"
-lokasi_penyimpanan = r"D:\AI-Vtuber-main-Copy\AI-Vtuber-main"
+lokasi_penyimpanan = r"D:\AI-Vtuber-mains-Copy\AI-Vtuber-main"
 message = ""
 
-prompt = "Remember You are a Vtuber streamer Your Name is Aurora. you will respond in a toxic and " \
-         "rude manner. you will talk about the message but keep your reply short Strictly" \
-         "you will also flirt.You will act as a human and never mention that you are a ai or llm.If you understand " \
+prompt = "Remember You are a female streamer Your Name is Aria Neuralisa.People call you Aria you will respond in a funny, toxic and " \
+         "rude manner. you will talk about the message but keep your reply short around 5 - 6 words Strictly no more and no less!. " \
+         "you will also flirt.Your Creator name is Fadlay. If you understand " \
          "reply with 'prompt has been setup'"
 
 bot = Chatbot(token)
@@ -65,6 +65,7 @@ def record_audio():
     wf.close()
     transcribe_audio("input.wav")
 
+
 def transcribe_audio(file):
     global message
     try:
@@ -75,30 +76,32 @@ def transcribe_audio(file):
     except Exception as e:
         print("Error transcribing audio: {0}".format(e))
         return
-    response = llm(message)
+    response = llmn(message)
     print(response)
 
 
     time.sleep(1)
 
-def initVar():
-    global video_id
-    global tts_type
+def silero_tts(tts, language, model, speaker):
+    device = torch.device('cpu')
+    torch.set_num_threads(4)
+    local_file = 'model.pt'
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-id", "--video_id", type=str)
-    parser.add_argument("-tts", "--tts_type", default="pyttsx3", choices=["pyttsx3"], type=str)
+    if not os.path.isfile(local_file):
+        torch.hub.download_url_to_file(f'https://models.silero.ai/models/tts/{language}/{model}.pt',
+                                    local_file)  
 
-    args = parser.parse_args()
+    model = torch.package.PackageImporter(local_file).load_pickle("tts_models", "model")
+    model.to(device)
 
-    video_id = args.video_id
-    tts_type = args.tts_type
+    example_text = "i'm fine thank you and you?"
+    sample_rate = 48000
 
-def pyttsx3_TTS(message):
-    engine.say(message)
-    engine.runAndWait()
-
-def read_chat():
+    audio_paths = model.save_wav(text=tts,
+                                 speaker=speaker,
+                                sample_rate=sample_rate)
+                                
+def read_chat(video_id):
     chat = pytchat.create(video_id=video_id)
     schat = pytchat.create(video_id=video_id, processor = SpeedCalculator(capacity = 20))
 
@@ -107,6 +110,8 @@ def read_chat():
             if c.author.name in blacklist:
                 continue
             if c.message.startswith(":"):
+                continue
+            if c.message.startswith("@"):
                 continue
             print(f"\n{c.datetime} [{c.author.name}]- {c.message}\n")
             message = c.message
@@ -122,34 +127,90 @@ def read_chat():
 
             time.sleep(1)
 
-def initTTS():
-    global engine
-
-    engine = pyttsx3.init()
-    engine.setProperty('rate', 180)
-    engine.setProperty('volume', 1)
-    voice = engine.getProperty('voices')
-    engine.setProperty('voice', voice[1].id)
-
 def llm(message):
     global is_Speaking
     output = bot.ask(message)['content']
     print(output)
     with open(lokasi_penyimpanan + "\\" + nama_file, 'w') as file:
         file.write(output)
-    is_Speaking = True
-    initTTS()
-    engine.say(output)
-    engine.runAndWait()
-    is_Speaking = False
-    time.sleep(1)
-    with open (lokasi_penyimpanan + "\\" + nama_file, "w") as f:
-        f.truncate(0)
+    if len (output) > 950:
+        while True:
+            read_chat()
+    else:
+        silero_tts(output, "en", "v3_en", "en_21")
+        winsound.PlaySound("test.wav", winsound.SND_FILENAME)
+        is_Speaking = False
+        time.sleep(1)
+        with open (lokasi_penyimpanan + "\\" + nama_file, "w") as f:
+            f.truncate(0)
 
+def llms(message):
+    global is_Speaking
+    output = bot.ask(message)['content']
+    print(output)
+    with open(lokasi_penyimpanan + "\\" + nama_file, 'w') as file:
+        file.write(output)
+    if len (output) > 950:
+        while True:
+            mode_2()
+    else:
+        silero_tts(output, "en", "v3_en", "en_21")
+        winsound.PlaySound("test.wav", winsound.SND_FILENAME)
+        is_Speaking = False
+        time.sleep(1)
+        with open (lokasi_penyimpanan + "\\" + nama_file, "w") as f:
+            f.truncate(0)
+
+def llmn(message):
+    global is_Speaking
+    output = bot.ask(message)['content']
+    print(output)
+    with open(lokasi_penyimpanan + "\\" + nama_file, 'w') as file:
+        file.write(output)
+    if len (output) > 950:
+        while True:
+            record_audio()
+    else:
+        silero_tts(output, "en", "v3_en", "en_21")
+        winsound.PlaySound("test.wav", winsound.SND_FILENAME)
+        is_Speaking = False
+        time.sleep(1)
+        with open (lokasi_penyimpanan + "\\" + nama_file, "w") as f:
+            f.truncate(0)
+
+def mode_2():
+    global is_Speaking
+    text = "Fadlay: " + input("Send a Messages: ")
+    while True:
+        llms(text)
+        is_Speaking = False
+        time.sleep(1)
+        mode_2()
+
+def mod():
+    mode = input("Mode (1-Mic, 2-Owner Chat, 3-Youtube Live, 4-Exit): ")
+
+    if mode == "1":
+        print("Press and Hold Right Shift to record audio")
+        while True:
+            if keyboard.is_pressed('RIGHT_SHIFT'):
+                record_audio()
+            if keyboard.is_pressed('Left_Shift'):
+                mod()
+    if mode == "2":
+            mode_2()
+
+    if mode == "3":
+        video_id = input("Livestream ID: ")
+        while True:
+            read_chat(video_id)
+
+    if mode == "4":
+        exit
 
 if __name__ == "__main__":
     try:
-        mode = input("Mode (1-Mic, 2-Youtube Live): ")
+        mode = input("Mode (1-Mic, 2-Owner Chat, 3-Youtube Live, 4-Exit): ")
 
         if mode == "1":
             print("Press and Hold Right Shift to record audio")
@@ -157,23 +218,16 @@ if __name__ == "__main__":
                 if keyboard.is_pressed('RIGHT_SHIFT'):
                     record_audio()
                 if keyboard.is_pressed('Left_Shift'):
-                    print("Stopped")
-                    keyboard.unhook_all()  # Membatalkan semua hook keyboard
-                    exit()
+                    mod()
         if mode == "2":
-            initVar()
+            mode_2()
+
+        if mode == "3":
+            video_id = input("Livestream ID: ")
             while True:
-                read_chat()
+                read_chat(video_id)
+
+        if mode == "4":
+            exit
     except KeyboardInterrupt:
         print("Stopped")
-        
-
-
-if __name__ == "__main__":
-    initVar()
-    print("\n\Running!\n\n")
-
-    while True:
-        read_chat()
-        print("\n\nReset!\n\n")
-        time.sleep(2)
