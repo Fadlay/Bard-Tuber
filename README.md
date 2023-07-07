@@ -1,12 +1,12 @@
 # AI-Tuber
-This code is designed to read chat messages from YouTube and then utilize Bard language model to generate responses. The output from Bard is then read out loud using a TTS (Text-to-Speech) engine provided by pyttsx3.
+This code is designed to read chat messages from YouTube and then utilize Bard language model to generate responses. The output from Bard is then read out loud using a TTS (Text-to-Speech) engine provided by silero.
 
 
 # Setup
 Install dependencies
 ```
 git clone https://github.com/Fadlay/Bard-Tuber.git
-cd AI-Vtuber
+cd Bard-Tuber
 pip install -r requirements.txt
 ```
 It also requires [`ffmpeg`](https://ffmpeg.org/) to be installed
@@ -24,10 +24,6 @@ Copy the values
 
 Edit the `start.bat` put video yt-id or run `run.py`
 
-### Default TTS
-```
-python run.py --video_id STREAMID 
-```
 ## Notes
 Replace `STREAMID` with the stream's ID that you can find on the Youtube Stream link
 
